@@ -38,8 +38,10 @@ def print_summary_stats(dataset):
 def plot_summary_stats(dataset):
     dataset.plot(kind="box", subplots=True, layout=(2, 2), sharex=False, sharey=False)
     plt.show()
+
     dataset.hist()
     plt.show()
+
     scatter_matrix(dataset)
     plt.show()
 
@@ -54,9 +56,10 @@ def split_train_validation_sets(dataset):
     return X_train, X_validation, Y_train, Y_validation
 
 
-def cross_validate(models):
+def cross_validate(models, X_train, Y_train):
     results = []
     names = []
+
     for name, model in models:
         kfold = StratifiedKFold(n_splits=10, random_state=1, shuffle=True)
         cv_results = cross_val_score(
@@ -86,7 +89,7 @@ if __name__ == "__main__":
     plot_summary_stats(dataset)
 
     X_train, X_validation, Y_train, Y_validation = split_train_validation_sets(dataset)
-    cross_validate(MODELS)
+    cross_validate(MODELS, X_train, Y_train)
 
     model = SVC(gamma="auto")
     print_results_stats(model)
