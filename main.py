@@ -1,19 +1,17 @@
-import pandas as pd
 import matplotlib.pyplot as plt
-
+import pandas as pd
+import pretty_errors  # noqa: F401
 from pandas.plotting import scatter_matrix
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import StratifiedKFold
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import accuracy_score
-from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import (accuracy_score, classification_report,
+                             confusion_matrix)
+from sklearn.model_selection import (StratifiedKFold, cross_val_score,
+                                     train_test_split)
 from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 URL = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
 NAMES = ["sepal-length", "sepal-width", "petal-length", "petal-width", "class"]

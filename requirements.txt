@@ -1,6 +1,8 @@
-black
 matplotlib
 numpy
 pandas
 scipy
 scikit-learn
+black
+flake8
+isort
